@@ -1,0 +1,740 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Serpbot API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-99cbc176.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
+                  </li>
+                  <li>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="Signup">Signup</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#trend" class="toc-h1 toc-link" data-title="Trend">Trend</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-trends-by-search-engine" class="toc-h2 toc-link" data-title="Get Trends by Search Engine">Get Trends by Search Engine</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#website" class="toc-h1 toc-link" data-title="Website">Website</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-websites" class="toc-h2 toc-link" data-title="Get All Websites">Get All Websites</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-website" class="toc-h2 toc-link" data-title="Get a Specific Website">Get a Specific Website</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-specific-website" class="toc-h2 toc-link" data-title="Create a Specific Website">Create a Specific Website</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-specific-website" class="toc-h2 toc-link" data-title="Update a Specific Website">Update a Specific Website</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-website" class="toc-h2 toc-link" data-title="Delete a Specific Website">Delete a Specific Website</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Serpbot API! You can use our API to access Serpbot API endpoints, which are used to add websites to monitor as well as provide statistics on their ranking in Google and Bing.</p>
+
+<p>We have language bindings in Shell, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"api_endpoint_here"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+</blockquote>
+
+<p>Serpbot makes use of bearer tokens to authenticate and validate incoming requests. The token can be generated upon calling the login endpoint with valid credentials.</p>
+
+<p>Serpbot expects for this token be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer abcd</code></p>
+
+<aside class="notice">
+You must replace <code>abcd</code> with your token.
+</aside>
+<h1 id='user'>User</h1><h2 id='login'>Login</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://serpbot.co/api/login"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"username"</span><span class="p">:</span><span class="s">"test"</span><span class="p">,</span><span class="s">"password"</span><span class="p">:</span><span class="s">"test"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/login"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"POST"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "password": "test",
+        "username": "test"
+      }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJHTUdNVnFJZ3Q1WEpwY0xnbHBBWVQ5aDExdnNtQVdmOFRLeDFKRWpncGVjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI4NGJkYjQxYS1iNWI4LTQ1NjItOGQ5NS1kNWM0ZjcxNzk0ZGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy13ZXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtd2VzdC0yX1luaEVsZG4zMCIsImNvZ25pdG86dXNlcm5hbWUiOiJuaWNvbGFzIiwib3JpZ2luX2p0aSI6ImE4NTFiYTllLTZkOTItNGRmZi04MDc0LTU4NjQzOTIzODRmNSIsImF1ZCI6IjU1aGduYXQ1aHNhOGgyYjlhOW44bWU2Zm9sIiwiZXZlbnRfaWQiOiIwM2JhYzhlYi0zOTZlLTRkM2ItOWY5MS1mNmQzYjYzZDM1OTgiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTY0ODUwOTg2MiwiZXhwIjoxNjQ4NTEzNDYyLCJpYXQiOjE2NDg1MDk4NjIsImp0aSI6IjRkNjU4N2I3LThiNjctNDQ3Yi1hODM0LTYzOTUxMTNmZmIzMSIsImVtYWlsIjoidGVtcEBvbmludGltZS5jb20ifQ.ADmuqU-NlFdhvnC_88GBX5zE7W0-nndO1oHQMn__0Fdk3tfVto9IY5pHe8ksigBDSmMjs5lrQz3iehpaRjchsa2bpTJjEWIrqgViQTzApOaSrPwgFdiCvJ8EPodVBKeg6I0_GlOAaaABopebFB0Jla3XtEqjQEd3RVIVEThlqZ4aCFslrTxA2yRjNg8w6gm2qeAjTsLRQi8Q9CYkOmG5_j2ACR6simqBbMo3Yd2GK9oo-7p7jYwsNk2fIg2k67LFowu-OuSsMbCbuDK47dbYZzMIc9Ibm5yTx3afsp9FXMQUVsnVA27YZbXFLNtiT6aeSlXI4C0MDUriWULagFWJKw"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint is used to login and retrieve the bearer token used for authentication on the other endpoints.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://serpbot.co/api/login</code></p>
+<h2 id='signup'>Signup</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://serpbot.co/api/signup"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"username"</span><span class="p">:</span><span class="s">"test"</span><span class="p">,</span><span class="s">"password"</span><span class="p">:</span><span class="s">"test"</span><span class="p">,</span><span class="s">"email"</span><span class="p">:</span><span class="s">"test@test.com"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/signup"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"POST"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+      "email": "test@test.com",
+      "password": "test",
+      "username": "test"
+      }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please confirm your signup, check your email for the validation URL"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint is used to create a user.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://serpbot.co/api/signup</code></p>
+<h1 id='trend'>Trend</h1><h2 id='get-trends-by-search-engine'>Get Trends by Search Engine</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://serpbot.co/api/trend/614403ef-c9cc-4132-bed1-ec360ea036ef/engine"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/trend/614403ef-c9cc-4132-bed1-ec360ea036ef/engine"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"GET"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your token and <code>engine</code> with either &quot;google&quot; or &quot;bing&quot;.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"trend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="mi">80</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"2022-03-25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2022-03-26"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2022-03-27"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2022-03-28"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2022-03-29"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint is used to fetch the trends of all websites associated with the user for a given search engine (either bing or google).</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://serpbot.co/api/trend/614403ef-c9cc-4132-bed1-ec360ea036ef/{engine}</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>engine</td>
+<td>The search engine (either google or bing)</td>
+</tr>
+</tbody></table>
+<h1 id='website'>Website</h1><h2 id='get-all-websites'>Get All Websites</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://serpbot.co/api/website"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/website"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"GET"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"614403ef-c9cc-4132-bed1-ec360ea036ef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"test"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"num_keywords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all websites belonging to the authenticated user.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://serpbot.co/api/website</code></p>
+<h2 id='get-a-specific-website'>Get a Specific Website</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://serpbot.co/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"GET"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"614403ef-c9cc-4132-bed1-ec360ea036ef"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"num_keywords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific website.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://serpbot.co/api/website/{id}</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the website to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-specific-website'>Create a Specific Website</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://serpbot.co/api/website"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">},</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"domain"</span><span class="p">:</span><span class="s">"test.com"</span><span class="p">,</span><span class="s">"keywords"</span><span class="p">:[</span><span class="s">"test"</span><span class="p">]})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/website"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"POST"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+      "domain": "test.com",
+      "keywords": [
+        "test"
+      ]
+    }'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates a specific website.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://serpbot.co/website</code></p>
+<h2 id='update-a-specific-website'>Update a Specific Website</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">"https://serpbot.co/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">},</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"keywords"</span><span class="p">:[</span><span class="s">"test"</span><span class="p">]})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"PUT"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+      "keywords": [
+        "test"
+      ]
+    }'</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates a specific website.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT https://serpbot.co/website/{id}</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the website to delete</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-website'>Delete a Specific Website</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://serpbot.co/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer abcd"</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://serpbot.co/api/website/614403ef-c9cc-4132-bed1-ec360ea036ef"</span> <span class="se">\</span>
+  <span class="nt">-X</span> <span class="s2">"DELETE"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abcd"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>abcd</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific website.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE https://serpbot.co/api/website/{id}</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the website to delete</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The Serpbot API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your token is invalid or expired.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified endpoint could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a endpoint with an invalid method.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Application Error -- There was an error with your request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
